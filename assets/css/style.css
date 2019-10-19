@@ -190,7 +190,38 @@ ins, a {
 .carinfo {
     transition: ease-in-out .3s;
 }
-.detail{
+
+.detail {
     min-height: 100vh;
     background-color: #F4F4F4;
+}
+
+.detail .img {
+    margin: 0 18px;
+}
+
+.detail .img img {
+    width: 100%;
+}
+
+.title1 {
+
+}
+
+.form1 {
+    height: 3.39rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: .5rem .18rem;
+    background-image: url("../imgs/title1.png");
+    /*background:rgba(255,255,255,1);*/
+    /*box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.08);*/
+    /*border-radius:10px;*/
+}
+
+.inputbox {
+    width: 5.57rem;
+    margin: 0 auto;
+    font-size: 14px;
+    background-color: #6A6B72;
 }
