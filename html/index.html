@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="../assets/css/swiper.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/window.js"></script>
+</head>
+<body>
+<div class="app">
+    <div class="logo"><img src="../assets/imgs/index_logo.png" alt=""></div>
+    <div class="carinfo" id="carinfo">
+        <div class="title">梅赛德斯奔驰 GT V8 诚邀试驾</div>
+        <div class="des">我们会第一时间与您联系，安排试驾事宜，申申请梅赛德斯申请梅赛德斯申请梅赛德斯</div>
+    </div>
+    <div class="swiper-container banner">
+        <div class="swiper-wrapper">
+            <!--                        <div class="swiper-slide" v-for="(item,index) in slide_list" :key="item.id">-->
+            <a class="swiper-slide" href="detail.html">
+                <img src="../assets/imgs/index_pic.png" alt>
+            </a>
+            <a class="swiper-slide" href="detail.html">
+                <img src="../assets/imgs/index_pic.png" alt>
+            </a>
+            <a class="swiper-slide" href="detail.html">
+                <img src="../assets/imgs/index_pic.png" alt>
+            </a>
+        </div>
+        <!--    <div class="swiper-button-prev"></div>&lt;!&ndash;左箭头。如果放置在swiper-container外面，需要自定义样式。&ndash;&gt;-->
+        <!--    <div class="swiper-button-next"></div>-->
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="bg">
+        <div class="bg_img"><img src="../assets/imgs/index_bg.png" alt=""></div>
+        <div class="bg_down"></div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../assets/js/jquery-1.12.4.min.js"></script>
+<script src="../assets/js/swiper.jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var data = [
+            {
+                name: '梅赛德斯奔驰 GT V8 诚邀试驾',
+                des: '我们会第一时间与您联系，安排试驾事宜，申申请梅赛德斯申请梅赛德斯申请梅赛德斯'
+            },
+            {
+                name: '梅赛德斯奔驰 GT V8 诚邀试驾1',
+                des: '我们会第一时间与您联系'
+            },
+            {
+                name: '梅赛德斯奔驰 GT V8 诚邀试驾2',
+                des: '，安排试驾事宜，申申请梅赛德斯斯2'
+            }
+        ]
+        var mySwiper = new Swiper('.banner', {
+            slidesPerView: 'auto', //重要 可以去swiper搜索
+            centeredSlides: true, //重要
+            paginationClickable: true,
+            effect: 'left',
+            speed: 500,
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 10,
+                depth: 60,
+                modifier: 2,
+            },
+            lazy: {
+                loadPrevNext: true,
+            },
+            observer: true,
+            observeParents: true,
+            pagination: '.swiper-pagination',
+            onSlideChangeEnd: function (swiper) {
+                console.log(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+                var html = `<div class="title">${data[swiper.activeIndex].name}</div><div class="des">${data[swiper.activeIndex].des}</div>`;
+                $('#carinfo').html(html)
+            }
+        });
+        // $('.swiper-slide').click(function () {
+        //     window.location.href = './detail.html'
+        // })
+    })
+</script>
