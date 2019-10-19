@@ -15,9 +15,98 @@
     <div class="img"><img src="../assets/imgs/detail_pic1.png" alt=""></div>
     <form action="" class="form">
         <div class="form1">
-            <div class="inputbox"><label for="">姓名</label><input type="text" ></div>
+            <div class="inputbox"><label for="name">姓名</label><input type="text" placeholder="" id="name"></div>
+            <div class="inputbox"><label for="tel">电话</label><input type="number" placeholder="" id="tel"></div>
         </div>
+        <div class="form1 form2">
+            <div class="checktbox">
+                <input type="checkbox" placeholder="" value="1" id="xq" name="checkGroup">
+                <label for="xq">
+                    <span class="checkimg"><img src="../assets/imgs/check.png" alt=""></span>
+                    <span>额外需求额外</span>
+                </label>
+            </div>
+            <div class="checktbox">
+                <input type="checkbox" placeholder="" value="2" id="xq1" name="checkGroup">
+                <label for="xq1">
+                    <span class="checkimg"><img src="../assets/imgs/check.png" alt=""></span>
+                    <span>额外需求额外需求外需求b额外需求bb</span>
+                </label>
+            </div>
+            <div class="checktbox">
+                <input type="checkbox" placeholder="" value="3" id="xq2" name="checkGroup">
+                <label for="xq2">
+                    <span class="checkimg"><img src="../assets/imgs/check.png" alt=""></span>
+                    <span>额外需求b 额外需求额外需求b额外需求b额外需求b额外需求bb</span>
+                </label>
+            </div>
+            <div class="checktbox">
+                <input type="checkbox" placeholder="" value="4" id="xq3" name="checkGroup">
+                <label for="xq3">
+                    <span class="checkimg"><img src="../assets/imgs/check.png" alt=""></span>
+                    <span>额外需求b</span>
+                </label>
+            </div>
+        </div>
+        <div class="form1 form3">
+            <textarea name="" id="remark" placeholder="填写备注"></textarea>
+        </div>
+        <div class="detail_content">
+            <div class="detail_title">
+                <span class="line"></span>
+                <span class="text">图文详情</span>
+                <span class="line"></span>
+            </div>
+            <div class="detail_img"><img src="../assets/imgs/detail_pic2.png" alt=""></div>
+        </div>
+        <div class="detail_btn">提交</div>
     </form>
 </div>
 </body>
 </html>
+<script src="../assets/js/jquery-1.12.4.min.js"></script>
+<script src="../assets/js/swiper.jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.detail_btn').click(function () {
+            var name = $('#name').val();
+            var tel = $('#tel').val();
+            var telReg = /^1\d{10}$/gi
+            var remark = $('#remark').val();
+            var str = "";
+            $("input[name='checkGroup']:checked").each(function (index, item) {
+
+                if ($("input[name='checkGroup']:checked").length - 1 == index) {
+                    str += $(this).val();
+                } else {
+                    str += $(this).val() + ",";
+                }
+            });
+            if (name == '') {
+                Toast('请输入姓名')
+            } else if (tel == '') {
+                Toast('请输入手机号')
+            } else if (!telReg.test(tel)) {
+                Toast('请输入正确的手机号')
+            } else {
+                // TO DO sth
+            }
+        });
+
+        function Toast(msg, duration) {
+            duration = isNaN(duration) ? 3000 : duration;
+            var m = document.createElement('div');
+            m.innerHTML = msg;
+            m.style.cssText = "max-width:60%;min-width: 150px;padding:0 14px;height: 40px;color: rgb(255, 255, 255);line-height: 40px;text-align: center;border-radius: 4px;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0,.7);font-size: 16px;";
+            document.body.appendChild(m);
+            setTimeout(function () {
+                var d = 0.5;
+                m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+                m.style.opacity = '0';
+                setTimeout(function () {
+                    document.body.removeChild(m)
+                }, d * 1000);
+            }, duration);
+        }
+    })
+</script>
