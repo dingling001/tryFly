@@ -100,8 +100,9 @@ ins, a {
 
 .logo {
     width: 2.2rem;
-    padding: .3rem .75rem;
+    padding: .3rem 0 .3rem .75rem ;
     font-size: 0;
+    height: .96rem;
 }
 
 .logo img {
@@ -160,14 +161,15 @@ ins, a {
 
 .banner .swiper-slide {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /*align-items: center;*/
+    /*justify-content: center;*/
     width: 85.2% !important;
     transform: scale(0.9);
     transition: all .3s;
     overflow: hidden;
     margin: 0 auto;
     border-radius: .36rem;
+    max-height: 8rem;
 }
 
 .banner .swiper-slide img {
@@ -193,6 +195,7 @@ ins, a {
 
 .carinfo {
     transition: ease-in-out .3s;
+    height: .88rem;
 }
 
 /* 详情*/
