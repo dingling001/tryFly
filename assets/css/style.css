@@ -246,6 +246,9 @@ ins, a {
 .inputbox label {
     color: #6A6B72;
     font-size: 14px;
+    display: block;
+    width: .6rem;
+    flex-shrink: 0;
 }
 
 .inputbox input {
