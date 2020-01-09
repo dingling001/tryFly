@@ -389,7 +389,7 @@ textarea {
     font-size: 16px;
     color: #fff;
     text-align: center;
-    margin: 0.5rem .35rem;
+    margin: 0.5rem .35rem 0 .35rem;
     position: relative;
     height: .88rem;
     z-index: 1;
@@ -412,4 +412,11 @@ textarea {
 
 .detail_btn:active {
     opacity: .7;
+}
+.dcontent{
+    background-color: #fff;
+    padding: 0 12px;
+}
+.dcontent img{
+    width: 100%!important;
 }
